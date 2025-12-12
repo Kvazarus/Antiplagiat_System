@@ -1,0 +1,175 @@
+{
+	"info": {
+		"_postman_id": "c6e0d5d4-aa62-40ae-975b-bc7ab492c1e7",
+		"name": "Antiplagiat System",
+		"description": "### Welcome to Postman! This is your first collection. \n\nCollections are your starting point for building and testing APIs. You can use this one to:\n\n• Group related requests\n• Test your API in real-world scenarios\n• Document and share your requests\n\nUpdate the name and overview whenever you’re ready to make it yours.\n\n[Learn more about Postman Collections.](https://learning.postman.com/docs/collections/collections-overview/)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "50758309",
+		"_collection_link": "https://leonid20060213-273821.postman.co/workspace/%D0%9B%D0%B5%D0%BE%D0%BD%D0%B8%D0%B4-%D0%98%D0%B2%D0%B0%D0%BD%D0%B8%D1%86%D0%BA%D0%B8%D0%B9's-Workspace~c2beb7f4-f54a-4ce6-8142-ad4a6e867f0a/collection/50758309-c6e0d5d4-aa62-40ae-975b-bc7ab492c1e7?action=share&source=collection_link&creator=50758309"
+	},
+	"item": [
+		{
+			"name": "Upload File1",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "student",
+							"value": "Petrov",
+							"type": "text"
+						},
+						{
+							"key": "task_id",
+							"value": "Math_Lab5",
+							"type": "text"
+						},
+						{
+							"key": "file",
+							"type": "file",
+							"src": "///wsl.localhost/Ubuntu/home/kvaza/KPO_HW3/antiplagiat_system/postman/files/test.txt"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/upload",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"upload"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Upload File2",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "student",
+							"value": "Ivanov",
+							"type": "text"
+						},
+						{
+							"key": "task_id",
+							"value": "Math_Lab5",
+							"type": "text"
+						},
+						{
+							"key": "file",
+							"type": "file",
+							"src": "///wsl.localhost/Ubuntu/home/kvaza/KPO_HW3/antiplagiat_system/postman/files/test.txt"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/upload",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"upload"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Upload File3",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "student",
+							"value": "Sidorov",
+							"type": "text"
+						},
+						{
+							"key": "task_id",
+							"value": "Math_Lab5",
+							"type": "text"
+						},
+						{
+							"key": "file",
+							"type": "file",
+							"src": "///wsl.localhost/Ubuntu/home/kvaza/KPO_HW3/antiplagiat_system/postman/files/test2.txt"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/upload",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"upload"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Task Report",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api/reports/task/Math_Lab5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"reports",
+						"task",
+						"Math_Lab5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Submission Report",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api/reports/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"reports",
+						"2"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

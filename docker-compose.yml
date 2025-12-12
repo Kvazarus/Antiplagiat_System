@@ -1,0 +1,62 @@
+services:
+  db:
+    image: postgres:15-alpine
+    container_name: antiplagiat_db
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: antiplagiat_db
+    ports:
+      - "5435:5432"
+    volumes:
+      - db_data:/var/lib/postgresql/data
+      - ./init_db.sql:/docker-entrypoint-initdb.d/init_db.sql
+    networks:
+      - backend_net
+
+  storage_service:
+    build: ./storage_service
+    container_name: antiplagiat_storage
+    environment:
+      POSTGRES_HOST: db
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: antiplagiat_db
+    depends_on:
+      - db
+    volumes:
+      - uploads_data:/app/uploads
+    networks:
+      - backend_net
+
+  analysis_service:
+    build: ./analysis_service
+    container_name: antiplagiat_analysis
+    environment:
+      POSTGRES_HOST: db
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: antiplagiat_db
+    depends_on:
+      - db
+    volumes:
+      - uploads_data:/app/uploads
+    networks:
+      - backend_net
+
+  gateway_service:
+    build: ./gateway_service
+    container_name: antiplagiat_gateway
+    ports:
+      - "8000:8080"
+    depends_on:
+      - storage_service
+      - analysis_service
+    networks:
+      - backend_net
+
+volumes:
+  db_data:
+  uploads_data: # общее хранилище файлов
+
+networks:
+  backend_net:
+    driver: bridge
